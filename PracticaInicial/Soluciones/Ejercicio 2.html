@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>título</title>
+	<meta charset="utf-8" />
+	<script>
+		// Variable donde se van a concatenar cadenas
+		var resultado = ""
+
+		do {
+			// Pedimos la cadena por teclado
+			var cadena = prompt("Introduce una cadena");
+
+			// Evitamos que se muestre null cuando el usuario no continúa
+			if (cadena != null){
+				// La primera vez concatenamos sin guión
+				if (resultado == "") {
+					resultado = resultado + cadena;
+				} else {
+					// Se añade guion a partir de la segunda iteración
+					resultado = resultado + "-" + cadena;
+				}
+			}			
+		// Si el usuario pulsa cancelar la cadena es nula y no continuamos
+		} while (cadena != null);
+
+		document.write(resultado);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

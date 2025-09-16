@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>título</title>
+	<meta charset="utf-8" />
+	<script>
+		 // Pedir número de DNI
+		let numero = prompt("Introduce tu número de DNI (0 a 99999999):");
+
+		// Array con las letras del DNI
+		const letras = ["T","R","W","A","G","M","Y","F","P","D","X","B","N",
+			"J","Z","S","Q","V","H","L","C","K","E"];
+
+		// Validar entrada. Se comprueba si es numérico con "isNaN"
+		if (numero == null || isNaN(numero) || numero < 0 || numero > 99999999) {
+			alert("Error: Debes introducir un número válido entre 0 y 99.999.999");
+		} else {
+			// Calcular resto
+			let resto = numero % 23;
+			let letra = letras[resto];
+
+			// Mostrar resultado en la página
+			document.write("Tu DNI es: " + numero + letra);
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

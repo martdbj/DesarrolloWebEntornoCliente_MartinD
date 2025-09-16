@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>título</title>
+	<meta charset="utf-8" />
+	<script>
+		var edad = prompt("Por favor, introduce tu edad:");
+
+		// Validar si la entrada es un número
+		if (edad.length == 0 || isNaN(edad)) {
+			document.write("Debes introducir un número válido para tu edad");
+		} else {
+			// Verificar si la edad es mayor de 18
+			if (edad >= 18) {
+				document.write("Ya puedes conducir");
+			} else {
+				document.write("Aún no puedes conducir. Necesitas tener al menos 18 años");
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

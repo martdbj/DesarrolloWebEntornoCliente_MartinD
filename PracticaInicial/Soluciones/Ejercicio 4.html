@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>título</title>
+	<meta charset="utf-8" />	
+</head>
+<body>
+	<!-- Campos de entrada -->
+	<label for="numA">A:</label>
+	<input type="number" id="numA">
+
+	<!-- El br se debe evitar con CSS aunque se añade por simplificar -->
+	<br><br>
+	<label for="numB">B:</label>
+	<input type="number" id="numB">
+	<br><br>
+
+	<!-- Botón -->
+	<button id="calcular">Calcular</button>
+
+	<!-- Resultado de operaciones -->
+	<div id="resultado"></div>
+
+	<!-- Resultado factorial -->
+	<h1 id="factorial"></h1>
+
+	<script>
+		// Función recursiva para calcular factorial
+		function factorial(n) {
+			if (n < 0) return "No definido"; // El factorial no existe para negativos
+			if (n === 0 || n === 1) return 1;
+			return n * factorial(n - 1);
+		}
+
+		document.getElementById("calcular").addEventListener("click", function () {
+			// Obtener valores de A y B
+			let a = Number(document.getElementById("numA").value);
+			let b = Number(document.getElementById("numB").value);
+
+			// Validación
+			if (isNaN(a) || isNaN(b)) {
+				alert("Introduce números válidos en A y B.");
+				return;
+			}
+
+			// Operaciones básicas
+			let suma = a + b;
+			let resta = a - b;
+			let multi = a * b;
+			let division = (b === 0) ? "Error: División por 0" : (a / b);
+
+			// Mostrar operaciones en el div 
+			document.getElementById("resultado").innerHTML = 
+				"<p>A + B = " + suma + "</p>" +
+				"<p>A - B = " + resta + "</p>" +
+				"<p>A * B = " + multi + "</p>" +
+				"<p>A / B = " + division + "</p>";
+
+			// Factoriales
+			let factA = factorial(a);
+			let factB = factorial(b);
+
+			// Mostrar en el <h1> con color rojo
+			let h1 = document.getElementById("factorial");
+			h1.textContent = "Factorial de A (" + a + ") = " + factA + ", Factorial de B (" + b + ") = " + factB;
+			h1.style.color = "red";
+		});
+	</script>
+</body>
+</html>
