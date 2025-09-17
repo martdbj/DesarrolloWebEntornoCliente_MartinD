@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo de código JavaScript incrustado</title>		
+</head>
+<body>
+	<p id="msg1">Prueba</p>
+	<script type="text/javascript">
+		// El script se llama después porque si se hace en el head no se ha cargado aún la página
+		// Esto se estudiará más adelante
+		var msg = 'Hello world';
+
+		console.log(msg);
+
+		document.getElementById("msg1").innerHTML = "He escrito en el log: " + msg;	
+		
+		alert("Mira el log");
+	</script>
+</body>
+</html> 
