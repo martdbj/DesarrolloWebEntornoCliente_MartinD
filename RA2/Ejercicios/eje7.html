@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <script>
+        while (true) {
+            let nota = prompt("Inserte una nota", 0);
+            if (nota < 0 || nota > 10 || isNaN(nota) || nota === null) {
+                alert("Error");
+                continue;
+            }
+            
+            if (nota === 0) {
+                alert("No presentado"); 
+            } else if (nota < 5) {
+                alert("Suspenso");
+            } else if (nota < 6) {
+                alert("Aprobado")
+            } else if (nota < 7) {
+                alert("Bien");
+            } else if (nota < 9) {
+                alert("Notable");
+            } else if (nota <= 10) {
+                alert("Sobresaliente")
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
