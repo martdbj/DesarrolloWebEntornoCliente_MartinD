@@ -11,19 +11,20 @@
                 alert("Error");
                 continue;
             }
-            
-            if (nota === 0) {
+            if (isNaN(nota) || nota < 10 || nota > 10) {
+                alert("Por favor, introduce una nota válida entre 0 y 10");
+            } else if (nota === 0) {
                 alert("No presentado"); 
             } else if (nota < 5) {
                 alert("Suspenso");
             } else if (nota < 6) {
-                alert("Aprobado")
+                alert("Aprobado");
             } else if (nota < 7) {
                 alert("Bien");
             } else if (nota < 9) {
                 alert("Notable");
             } else if (nota <= 10) {
-                alert("Sobresaliente")
+                alert("Sobresaliente");
             }
             
         }
