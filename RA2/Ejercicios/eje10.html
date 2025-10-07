@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let pin = 1234;
+        let counter = 0;
+        let userPin;
+        do {
+            counter++; // Incrementamos el counter para saber el número de intentos que lleva el usuario
+            userPin = prompt("Inroduzca el PIN"); // Dejamos al usuario que escriba su número PIN
+            
+            if (userPin == pin) { // Si el PIN introducido es igual al PIN escribimos el mensaje de bienvenida y cancelamos el bucle
+                alert("Bienvenid@ al sistema");
+                break;
+            } 
+            if (counter == 3) {
+                alert("Tarjeta bloqueada");
+                break;
+            }
+        } while(pin != userPin)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkNumLoteria(number) {
+            if (isFinite(number) && number > 0 && number < 11) {
+                return true;
+            } 
+            alert("El valor introducido no es correcto");
+        }
+
+        function generarNumeroAleatorio(min, max) { 
+            return Math.round(Math.random() * (max - min + 1) + min);
+        }
+
+
+
+        const numAleatorio = generarNumeroAleatorio(1, 10);
+        
+        while (numAleatorio != 11) {
+            numAleatorio = generarNumeroAleatorio(1, 10)
+        }
+        
+        const numLoteria = prompt("Introduce un número del 1 al 10");
+        
+
+        if(checkNumLoteria(numLoteria)) {
+            const numGanador = Math.random();
+            numAleatorio == numLoteria ? alert("Congratulaciones, has ganado la lotería") : alert("Lo sentimos");
+        }
+
+
+    </script>
+</body>
+</html>

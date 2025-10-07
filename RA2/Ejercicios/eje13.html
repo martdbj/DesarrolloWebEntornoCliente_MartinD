@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Pedimos al usuario que introduzca su nombre y género
+        let nombre = prompt("Introduzca su nombre");
+        let genero = prompt("Introduzca su género");
+        
+        if (hayValoresBlanco(nombre)) {  // Si el nombre esta en blanco o no se ha declarado llamando a la función lanzamos un error
+            alert("Error, el nómbre no existe");
+        } else if (hayValoresBlanco(genero)) {
+            saludoPersonalizado(nombre); // Saludo personalizado sin declarar variable de género (valor predeterminado "no especificado")
+        } else {
+            saludoPersonalizado(nombre, genero); // Saludo personalizado declarando la variable género
+        }
+
+        function saludoPersonalizado(nombre, genero = "no especificado") {
+            // Si el género no se ha llamado en la función o el prompt del género se ha dejado vacio se ejecuta este if
+            if (genero == "no especificado") {
+                alert("Bienvenid@ " + nombre);
+            } else {
+                genero === "masculino" ? alert("Bienvenido " + nombre) : alert("Bienvenida " + nombre); // Si género === "masculino" se ejecuta el primer alert, de lo contrario se ejecuta el segundo
+            }
+        }
+        
+        // Comprobación de si el nombre está en blanco
+        function hayValoresBlanco(valor) {
+            return (!isNaN(valor) || valor == "");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

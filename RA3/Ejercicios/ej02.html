@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precio análisis</title>
+</head>
+
+<body>
+    <script>
+        function esNumeroFinito(precio, descuento) {
+            if (isFinite(precio) && isFinite(descuento)) {
+                return true;
+            }
+        }
+
+        let precio = prompt("Introduce un precio base en euros");
+        let descuento = prompt("introduce el porcentaje de descuento");
+
+        if (esNumeroFinito(precio, descuento)) {
+            precio = parseInt(precio);
+            descuento = parseInt(descuento);
+
+            precio * descuento;
+        }
+    </script>
+</body>
+
+</html>
