@@ -9,20 +9,23 @@
 
 <body>
     <script>
-        function esNumeroFinito(precio, descuento) {
-            if (isFinite(precio) && isFinite(descuento)) {
-                return true;
-            }
-        }
+
 
         let precio = prompt("Introduce un precio base en euros");
         let descuento = prompt("introduce el porcentaje de descuento");
 
-        if (esNumeroFinito(precio, descuento)) {
-            precio = parseInt(precio);
-            descuento = parseInt(descuento);
+        precio = parseInt(precio);
+        descuento = parseFloat(descuento);
 
-            precio * descuento;
+        if (isFinite(precio) && isFinite(descuento)) {
+            descuento = descuento / 100;
+
+            let precioFinal = precio - (precio * descuento);
+
+            alert(`El precio con descuento es ${precioFinal}€`)
+            
+        } else {
+            alert("Error, valores introducidos incorrectos");
         }
     </script>
 </body>
