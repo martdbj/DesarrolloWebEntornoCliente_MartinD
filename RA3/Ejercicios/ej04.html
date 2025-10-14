@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+</head>
+<body>
+    <script>
+        let continuar = true;
+        fechas = [];
+        while (continuar) {
+            let fecha = prompt("Introduce una fecha");
+            if (!Date.parse(fecha)) {
+                alert("El formato de la fecha no es válido");
+                continue;
+            }
+            console.log(fecha.set("DD-MM-YYYY, THH:mm")); // Error en el log
+            fechas.push(fecha);
+        }
+    </script>
+</body>
+</html>

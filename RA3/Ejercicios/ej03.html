@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03</title>
+</head>
+<body>
+    <script>
+        let texto = prompt("Introduce el texto");
+        const target = "JavaScript ";   
+        if (texto.indexOf(target) != -1) {
+            let userGuess = -1;
+            let pos = -1;
+            pos = texto.indexOf(target, pos + 1); 
+
+            while (userGuess != pos) {
+                userGuess = +prompt("Introduce la posición en la que crees que se encuentra el texto");
+                if (userGuess > pos) {
+                    alert("La posición es menor");
+                    continue;
+                } else if (userGuess < pos) {
+                    alert("La posición es mayor");
+                    continue;
+                } 
+                alert("Has ganado");
+            }
+        } else {
+            alert("El texto introducido no contiene la palabra JavaScript")
+        }
+    </script>
+</body>
+</html>
