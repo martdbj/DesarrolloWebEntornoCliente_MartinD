@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fechas</title>
 </head>
+
 <body>
     <script>
-        let fecha = new Date;
-        while (true) {
-            fecha = prompt("Introduce una fecha");
-            if (!Date.parse(fecha)) {
-                continue;
+        const fechas = [];
+        const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+            "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+        while (confirm("Deseas escribir una fecha?")) {
+            const fechaEntrada = prompt("Escribe una fecha (EJ 2025-10-20, Oct 20 2025)")
+            const fecha = new Date(fechaEntrada);
+            fechas.push(fecha);
+        }
+
+        fechas.forEach(fecha => {
+            if (isNaN(fecha)) {
+                alert("Error. La fecha introducida no tiene un formato correcto")
+            } else {
+                console.log(`La fecha ${fecha.getDay()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()}, ${fecha.getHours()}:${fecha.getMinutes()} ha sido introducida correctamente`);
+                console.log(`La diferencia de días entre la fecha actual y la introducida es de ${diferenciaDias(fecha)}`);
+                console.log(`La diferencia de segundos entre la fecha actual y la introducia es de ${diferenciaSegundos(fecha)}`);
+                console.log(`La fecha original es ${fecha}`);
+                fecha.setDate(fecha.getDate() + 5);
+                console.log(`La fecha actualizada es ${fecha}`);
+                
             }
-            Date.parse(fecha);
-            console.log(`${fecha.getDate} de ${fecha.getMonth} de ${fecha.getFullYear} a las ${fecha.getHours}:${fecha.getMinutes}`)
+        })
+
+        function diferenciaDias(fechaIntroducida) {
+            const fechaActual = new Date();
+            const diferencia = fechaActual - fechaIntroducida;
+            return Math.round(diferencia / (1000 * 60 * 60 * 24));
+        }
+
+        function diferenciaSegundos(fechaIntroducida) {
+            const fechaActual = new Date();
+            const diferencia = fechaActual - fechaIntroducida;
+            return Math.floor(diferencia / 1000);
         }
     </script>
 </body>
+
 </html>
