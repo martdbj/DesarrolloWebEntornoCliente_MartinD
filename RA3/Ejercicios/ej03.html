@@ -8,23 +8,29 @@
 <body>
     <script>
         let texto = prompt("Introduce el texto");
-        const target = "JavaScript ";   
+        texto = texto.trim();
+        texto = texto.toLowerCase();
+        const target = "javascript";   
         if (texto.indexOf(target) != -1) {
             let userGuess = -1;
             let pos = -1;
             pos = texto.indexOf(target, pos + 1); 
-
+            let intentos = 1;
+            
             while (userGuess != pos) {
                 userGuess = +prompt("Introduce la posición en la que crees que se encuentra el texto");
                 if (userGuess > pos) {
                     alert("La posición es menor");
+                    intentos++;
                     continue;
                 } else if (userGuess < pos) {
                     alert("La posición es mayor");
+                    intentos++;
                     continue;
                 } 
-                alert("Has ganado");
             }
+            alert(`Número de intentos: ${intentos}\nResto de la cadena: ${texto.slice(pos + 10, texto.length)}
+            `);
         } else {
             alert("El texto introducido no contiene la palabra JavaScript")
         }
