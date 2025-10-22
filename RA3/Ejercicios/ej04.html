@@ -48,12 +48,12 @@
 
         function esFindeSemana(fechaIntroducida) {
             const diaSemana = fechaIntroducida.getDay();
-            return diaSemana > 4 ? "La fecha introducida es fin de semana" : "La fecha introducida es un día de diario ";
+            return diaSemana > 4 ? "La fecha introducida es fin de semana" : "La fecha introducida es un día de diario";
         }
 
         function horarioMañana(fechaIntroducida) {
             const hora = fechaIntroducida.getHours();
-            return hora >= 0 && hora <= 8 ? "La hora transcurre entre las 00:00 y las 08:00" : "La hora no transcurre entre las 00:00 y las 08:00 " + hora;
+            return hora >= 0 && hora <= 8 ? "La hora transcurre entre las 00:00 y las 08:00" : "La hora no transcurre entre las 00:00 y las 08:00";
         }
     </script>
 </body>
