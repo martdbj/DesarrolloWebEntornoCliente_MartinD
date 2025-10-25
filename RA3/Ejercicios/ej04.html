@@ -14,7 +14,7 @@
             "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 
         while (confirm("Deseas escribir una fecha?")) {
-            const fechaEntrada = prompt("Escribe una fecha (EJ 2025-10-20, Oct 20 2025)")
+            const fechaEntrada = prompt("Escribe una fecha (EJ 2025-03-04, Sept 10 2025)")
             const fecha = new Date(fechaEntrada);
             fechas.push(fecha);
         }
@@ -23,13 +23,14 @@
             if (isNaN(fecha)) {
                 alert("Error. La fecha introducida no tiene un formato correcto")
             } else {
-                console.log(`La fecha ${fecha.getDay()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()}, ${fecha.getHours()}:${fecha.getMinutes()} ha sido introducida correctamente`);
+                console.log(`La fecha ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()}, ${fecha.getHours()}:${fecha.getMinutes()} ha sido introducida correctamente`);
                 console.log(`La diferencia de días entre la fecha actual y la introducida es de ${diferenciaDias(fecha)}`);
                 console.log(`La diferencia de segundos entre la fecha actual y la introducia es de ${diferenciaSegundos(fecha)}`);
                 console.log(`La fecha original es ${fecha}`);
                 fecha.setDate(fecha.getDate() + 5);
                 console.log(`La fecha actualizada es ${fecha}`);
-                
+                console.log(esFindeSemana(fecha));
+                console.log(horarioMañana(fecha));
             }
         })
 
@@ -43,6 +44,16 @@
             const fechaActual = new Date();
             const diferencia = fechaActual - fechaIntroducida;
             return Math.floor(diferencia / 1000);
+        }
+
+        function esFindeSemana(fechaIntroducida) {
+            const diaSemana = fechaIntroducida.getDay();
+            return diaSemana > 4 ? "La fecha introducida es fin de semana" : "La fecha introducida es un día de diario";
+        }
+
+        function horarioMañana(fechaIntroducida) {
+            const hora = fechaIntroducida.getHours();
+            return hora >= 0 && hora <= 8 ? "La hora transcurre entre las 00:00 y las 08:00" : "La hora no transcurre entre las 00:00 y las 08:00";
         }
     </script>
 </body>

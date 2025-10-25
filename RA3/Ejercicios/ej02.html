@@ -12,18 +12,20 @@
         let precio = prompt("Introduce un precio base en euros");
         let descuento = prompt("introduce el porcentaje de descuento");
 
-        precio = parseInt(precio);
-        descuento = parseFloat(descuento);
-
-        if (isFinite(precio) && isFinite(descuento)) {
-            descuento = descuento / 100;
-
-            let precioFinal = precio - (precio * descuento);
-
-            alert(`El precio con descuento es ${precioFinal}€`)
-            
+        if (precio > 1.7976931348623157e+308 || descuento > 1.7976931348623157e+308) {
+            alert("Infinito")
         } else {
-            alert("Error, valores introducidos incorrectos");
+            precio = parseInt(precio);
+            descuento = parseFloat(descuento);
+
+            if (isFinite(precio) && isFinite(descuento)) {
+                let precioFinal = precio - (precio * descuento);
+                precioFinal = precioFinal.toFixed(2);
+                alert(`El precio con descuento es ${precioFinal}€`)
+
+            } else if (!isFinite(precio) && !isFinite(descuento)) {
+                alert("Error. El precio o descuento introducido no es un número");
+            }
         }
     </script>
 </body>
