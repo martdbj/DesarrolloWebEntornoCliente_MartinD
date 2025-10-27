@@ -1,6 +1,8 @@
 let inputName = prompt("Introduce el nombre del alumno");
-let nota = prompt("Introduce la nota del alumno");
-
+let nota;
+do {
+    nota = prompt("Introduce la nota del alumno");
+} while (isNaN(nota))
 
 let estado = document.querySelector('.mensaje')
 
@@ -12,11 +14,11 @@ texto.innerHTML = `<strong>Nota: ${nota}</strong>`;
 
 if (nota < 5) {
     estado.textContent = 'Suspenso';
-} else if (nota >= 5 && nota <= 6) {
+} else if (nota < 6) {
     estado.textContent = 'Aprobado';
-} else if (nota > 6 && nota < 7) {
+} else if (nota < 7) {
     estado.textContent = 'Bien'
-} else if (nota >= 7 && nota <= 9) {
+} else if (nota < 9) {
     estado.textContent = 'Notable';
 } else {
     estado.textContent = 'Sobresaliente';
