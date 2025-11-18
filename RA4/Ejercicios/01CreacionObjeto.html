@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let alumno = {
+        edad: 18,
+        admin: false,
+        stats: {
+            post: 0,
+            followers: 0
+        }
+    }
+
+    function recorrerObjeto(objeto) {
+        let contenidoObjeto = "";
+        for (let key in objeto) {
+            if (typeof key === Object) {
+                contenidoObjeto += key;
+                for (let key2 in key) {
+                    contenidoObjeto += `${key2}`
+                }
+            } else {
+                contenidoObjeto += `${key}: ${objeto[key]}`;
+            }
+        }
+        return contenidoObjeto;
+    }
+
+    window.onload = () => {
+        let result = document.querySelector('#output');
+        alumno.stats.post += 2;
+        alumno.stats.followers += 3;
+
+        alumno.admin = true;
+        result.innerHTML = `Persmiso administrador cambiado a ${alumno.admin}`;
+        alumno.admin = false;
+
+        setTimeout(() => { result.innerHTML = recorrerObjeto(alumno) }, 2000);
+
+        console.log(typeof alumno.stats)
+    }
+</script>
+
+<body>
+    <p id="output"></p>
+</body>
+
+</html>
