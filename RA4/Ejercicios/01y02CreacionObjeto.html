@@ -17,19 +17,23 @@
     }
 
     function recorrerObjeto(objeto) {
-        let parrafo = "";
+        let parrafo = document.querySelector('#output');
+        parrafo.innerHTML += '<h3>Objeto</h3>';
         for (let key in objeto) {
             if (typeof objeto[key] === 'object') {
-                parrafo.innerHTML += `<h3>${key}:</h3>`;
+                parrafo.innerHTML += `<h3>${key}:</h3>`
+                for (let statusName in objeto[key]) {
+                    parrafo.innerHTML += `<p><strong>${statusName}:</strong> ${objeto[key][statusName]}</p>`;
+                }
             } else {
                 parrafo.innerHTML += `<p><strong>${key}:</strong> ${objeto[key]}</p>`;
             }
         }
-        return parrafo;
     }
 
     window.onload = () => {
         let result = document.querySelector('#output');
+        let result2 = document.querySelector('#clonedOutput')
         alumno.stats.post += 2;
         alumno.stats.followers += 3;
 
@@ -37,15 +41,18 @@
         result.innerHTML = `Persmiso administrador cambiado a ${alumno.admin}`;
         alumno.admin = false;
 
-        setTimeout(() => { result.innerHTML = recorrerObjeto(alumno) }, 2000);
+        recorrerObjeto(alumno);
 
-        console.log(typeof alumno.stats)
+        let clone = structuredClone(alumno)
+
+        clone.stats.post += 1;
+
+        recorrerObjeto(clone)
     }
 </script>
 
 <body>
     <p id="output"></p>
-    <p>Test</p>
 </body>
 
 </html>
