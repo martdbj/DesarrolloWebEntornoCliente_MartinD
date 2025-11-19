@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script/ej08.js"></script>
     <title>Document</title>
     <style>
         iframe {
@@ -12,12 +12,46 @@
             border: 1px solid black;
         }
     </style>
+    <script>
+        window.onload = () => {
+            const boton = document.querySelector('button');
+
+            let left = screen.width - 500;
+            let inputText = document.querySelector('input');
+
+            //Cuando se hace click en el botón se comprueba si se ha introducido texto en el inputTex
+            boton.addEventListener('click', () => {
+                if (!inputText.value.trim()) {
+                    alert("No has rellenado el input")
+                } else {
+                    
+                    //Parámetros de la nueva ventana
+                    const param = `width=500, height=300, left=${left}, top=0`;
+                    const newWin = window.open("ej08Popup.html", "name", param);
+
+                    // Cuando el contenido del DOM este cargado accedemos a la etiqueta con el ID mensaje, he introducimos texto y el nombre insertado en el input por el usuario
+                    newWin.addEventListener('DOMContentLoaded', () => {
+                        newWin.document.querySelector('#mensaje').textContent = `Hola, buenas tardes: ${inputText.value}`;
+                    })
+                }
+            })
+
+            // Si desde el popup el usuario envia el mensaje, lo recibimos desde aquí y elegimos nuestro Iframe para insertar el contenido en forma de párrafo
+            window.addEventListener('message', (event) => {
+                window.frames[0].document.body.innerHTML = `<p> ${event.data} </p>`;
+            })
+        }
+    </script>
 </head>
+
 <body>
-    <iframe frameborder="0"></iframe>
+    <iframe frameborder="0">
+    </iframe>
     <div>
-        Campo tipo texto: <input type="text">
+        Nombre: <input type="text">
         <button type="submit">Button</button>
+        <p></p>
     </div>
 </body>
+
 </html>

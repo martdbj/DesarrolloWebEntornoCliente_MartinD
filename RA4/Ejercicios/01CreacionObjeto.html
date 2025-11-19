@@ -17,18 +17,15 @@
     }
 
     function recorrerObjeto(objeto) {
-        let contenidoObjeto = "";
+        let parrafo = "";
         for (let key in objeto) {
-            if (typeof key === Object) {
-                contenidoObjeto += key;
-                for (let key2 in key) {
-                    contenidoObjeto += `${key2}`
-                }
+            if (typeof objeto[key] === 'object') {
+                parrafo.innerHTML += `<h3>${key}:</h3>`;
             } else {
-                contenidoObjeto += `${key}: ${objeto[key]}`;
+                parrafo.innerHTML += `<p><strong>${key}:</strong> ${objeto[key]}</p>`;
             }
         }
-        return contenidoObjeto;
+        return parrafo;
     }
 
     window.onload = () => {

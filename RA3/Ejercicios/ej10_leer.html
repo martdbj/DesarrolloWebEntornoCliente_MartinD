@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = () => {
+        const parrafo = document.querySelector('p')
+        const boton = document.querySelector('button');
+        const user = localStorage.getItem('user');
+        const edad = localStorage.getItem('edad');
+        
+        // Si se ha puesto en el localStorage se inserta el primer parrafo, sino el segundo
+        if (user && edad) {
+            parrafo.innerText = `Hola ${user}. Tienes  ${edad} años`;
+        } else {
+            parrafo.innerHTML = `Se han borrado los datos <a href="ej10LocalStorage.html">Volver</a>`
+        }
+        
+        // Si el boton se pulsa borramos el localStorage y recargamos la página 
+        boton.addEventListener('click', () => {
+            localStorage.clear();
+            window.location.reload();
+        })
+    }
+</script>
+
+<body>
+    <h1>Bienvenid@</h1>
+    <p></p>
+    <button type="submit" id="boton">Borrar LocalStorage</button>
+</body>
+
+</html>

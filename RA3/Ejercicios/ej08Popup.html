@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = () => {
+            const boton = document.querySelector('#cerrar');
+            // Cuando el usuario le de click al botón, accedemos a la página que abrió el popup con 'opener' y mandamos el mensaje buen viaje
+            boton.addEventListener('click', () => {
+                window.opener.postMessage("Buen Viaje");
+                window.close();
+            })                      
+        }
+    </script>
+</head>
+
+<body>
+    <h2 id="mensaje"></h2>
+    <button id="cerrar">Boton</button>
+</body>
+
+</html>

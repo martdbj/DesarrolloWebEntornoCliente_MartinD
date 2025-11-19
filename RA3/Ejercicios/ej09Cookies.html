@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script defer>
+    window.onload = () => {
+        const inputNombre = document.querySelector("#nombreInput");
+        const inputEdad = document.querySelector("#edadInput");
+        const boton = document.querySelector("#boton");
+
+        boton.addEventListener('click', () => {
+            let username = inputNombre.value;
+            let edad = inputEdad.value;
+
+            let date = new Date(Date.now() + 86400e3);
+            date = date.toUTCString();
+            localStorage.setItem('user', username);
+            localStorage.setItem('edad', edad);
+            window.location.href = "./ej09_leer.html";
+        })
+        function setCookie(name, value, attributes = {}) {
+
+            attributes = {
+                path: '/',
+                // agregar otros valores predeterminados si es necesario
+                ...attributes
+            };
+
+            if (attributes.expires instanceof Date) {
+                attributes.expires = attributes.expires.toUTCString();
+            }
+
+            let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+            for (let attributeKey in attributes) {
+                updatedCookie += "; " + attributeKey;
+                let attributeValue = attributes[attributeKey];
+                if (attributeValue !== true) {
+                    updatedCookie += "=" + attributeValue;
+                }
+            }
+
+            document.cookie = updatedCookie;
+        }
+    }
+</script>
+
+<body>
+    <h1>Introduce tus datos</h1>
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombreInput" required placeholder="Tu nombre">
+    <br><br>
+    <label for="edad">Edad:</label>
+    <input type="text" name="edad" id="edadInput" required placeholder="Tu edad">
+    <br><br>
+    <button type="submit" id="boton">Guardar y continuar</button>
+</body>
+
+</html>
