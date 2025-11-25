@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = () => {
+        const boton = document.querySelector("#enviar");
+
+        boton.addEventListener('click', () => {
+            let nombre = document.getElementById("nombre").value.trim();
+            let notaInput = document.getElementById("nota").value.trim();
+            let nota = Number(notaInput);
+            
+            if (nombre != "" || isNaN(nota) || nota < 0 || nota > 10) {
+                const h2 = document.querySelector("h2");
+                h2.innerText += nombre;
+
+                document.getElementById("notaFinal").innerHTML = `<strong>Nota: ${nota}</strong>`;
+
+                const mensaje = document.querySelector(".mensaje");
+                let resultadoFinal = "";
+                if (nota < 5) {
+                    resultadoFinal = "Suspenso";
+                } else if (nota < 6) {
+                    resultadoFinal = "Aprobado";
+                } else if (nota < 7) {
+                    resultadoFinal = "Bien";
+                } else if (nota < 9) {
+                    resultadoFinal = "Notable";
+                } else {
+                    resultadoFinal = "Sobresaliente";
+                }
+
+                mensaje.innerHTML += resultadoFinal;
+            }
+        })
+    }
+</script>
+
+<body>
+    <h2>Nombre del alumno</h2>
+    <p id="notaFinal">Resultado de la evaluación:</p>
+    <div class="mensaje"></div>
+    <label>
+        Nombre
+        <input type="text" name="nombre" id="nombre">
+    </label>
+    <label>
+        Nota
+        <input type="number" name="nota" id="nota">
+    </label>
+    <button id="enviar">Enviar</button>
+</body>
+
+
+</html>
