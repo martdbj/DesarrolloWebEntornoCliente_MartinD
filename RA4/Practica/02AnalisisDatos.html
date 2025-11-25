@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let precioBaseInput = prompt("Introduce un precio base");
+    let descuentoInput = prompt("Introduce un número con decimales para representar el descuento");
+
+    let precioBase = parseInt(precioBaseInput);
+    let descuento = parseFloat(descuentoInput);
+
+    if (isNaN(precioBase) || isNaN(descuento)) {
+        alert("Error. Alguno de los valores introducidos no es numérico")
+    } else {
+        let precioFinal = precioBase - (precioBase * (descuento / 100));
+        
+        // Comprobamos que el calculo salaga un nùmero correcto
+        if (isFinite(precioFinal)) {
+            let precioFinalRedondeado = precioFinal.toFixed(2);
+
+            alert(`El precio final con el descuento es de ${precioFinalRedondeado}`);
+        } else {
+            alert("Error en el cáculo. El resultado es infinito");
+        }
+    }
+</script>
+</html>
