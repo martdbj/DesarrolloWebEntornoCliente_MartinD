@@ -10,14 +10,25 @@
         const boton = document.getElementById("enviar");
 
         boton.addEventListener('click', () => {
-            
+            let nombre = document.getElementById("nombre").value.trim();
+            let edad = document.getElementById("edad").value.trim();
+
+            if (nombre && edad && !isNaN(edad)) {
+                const VIGENCIA = 5 * 60;
+                document.cookie = `nombre=${encodeURIComponent(nombre)}; max-age=${VIGENCIA}; path=/`;
+                document.cookie = `edad=${encodeURIComponent(edad)}; max-age=${VIGENCIA}; path=/`;
+
+                window.location.href = "09Leer_Ejercicio.html";
+            } else {
+                alert("Nombre o edad no son válidos")
+            }
         })
     }
 </script>
 <body>
     <h1>Introduce tus datos</h1>
-    <label for="name">Nombre</label>
-    <input type="text" name="name" id="name">
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" id="nombre">
     <br>
     <label for="edad">Edad</label>
     <input type="number" name="edad" id="edad">
