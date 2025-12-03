@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let alumno = {
+        edad: 18,
+        admin: false,
+        stats: {
+            post: 0,
+            followers: 0
+        },
+
+        incrementarStats(tipo, n) {
+            if (this.stats?.[tipo] != undefined) {
+                if (typeof n == "number" && isNaN(n)) {
+                    this.stats.tipo += n;
+                }
+            }
+        }
+    }
+
+    window.onload = () => {
+
+        function recorrerObjeto(objeto) {
+            let parrafo = document.querySelector('#output');
+            parrafo.innerHTML += '<h3>Objeto</h3>';
+            for (let key in objeto) {
+                if (typeof objeto[key] === 'object') {
+                    parrafo.innerHTML += `<h3>${key}:</h3>`
+                    for (let statusName in objeto[key]) {
+                        parrafo.innerHTML += `<p><strong>${statusName}:</strong> ${objeto[key][statusName]}</p>`;
+                    }
+                } else {
+                    parrafo.innerHTML += `<p><strong>${key}:</strong> ${objeto[key]}</p>`;
+                }
+            }
+        }
+
+        alumno.incrementarStats("post", 5);
+        recorrerObjeto(alumno);
+    }
+</script>
+
+<body>
+    <p id="output"></p>
+</body>
+
+</html>
