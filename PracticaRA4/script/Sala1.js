@@ -130,6 +130,7 @@ for (const botonIncorrecto of screen5Incorrecto) {
 }
 
 screen5Correcto.addEventListener("click", () => {
+    let comida = cajaFuerte.nevera.stock.pop();
     respuestaIncorrectaScreen5.style.display = "none";
     screen5.style.display = "none";
     finalSala1.style.display = "block";
