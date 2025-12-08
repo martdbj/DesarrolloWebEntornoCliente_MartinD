@@ -18,13 +18,12 @@
         <p>-No hay problema, te dices a ti mismo. Pero de lo que no te acuerdas es de que la caja fuerte fue construida
             por tu profesor de JavaScript. Por lo qué tienes que descifrar la contraseña manipulando objetos de JavaScript con el fin de conseguir tu
             ansiado tentempie.</p>
-        <p>La única parte negativa es que tienes un tiempo límite. Si no consigues la comida a tiempo moriras de hambre,
-            por lo que tienes que ser rápido.</p>
+        <p>Por suerte guardas el manual de instrucciones que el profesor escribió al crear la caja fuerte, por lo que tienes alguna pista de como desbloquearla.</p>
         <button id="siguiente">Seguir</button>
     </div>
     ===============
     <div id="screen2" style="display: block;">
-        <p>Estás en la cocina y ves la caja fuerte, sabes que solo tienes tres intentos para desbloquearla, por lo que a lo mejor es buena idea hacer una copia de seguridad del código para poder intentarlo todas las veces que quieras.</p>
+        <p>Estás en la cocina y ves la caja fuerte, según el manual de instrucciones que guardas desde hace 20 años, sabes que solo tienes tres intentos para desbloquearla, por lo que a lo mejor es buena idea hacer una copia de seguridad del código para poder intentarlo todas las veces que quieras.</p>
         <p>No te acuerdas muy bien de cómo se creaban estas copias, pero por tu cabeza pasan varias opciones de hacerlo. El código de la caja fuerte, al tener probablemente funciones y cosas extrañas introducidas por el ingenioso profesor, solo tiene una manera correcta de realizar una clonación correcta y efectiva</p>
         <button class="screen2Incorrecto">Destructured Clone</button>
         <br><br>
@@ -38,16 +37,24 @@
     </div>
 
     <div id="screen2RespuestaIncorrecta" style="display: none;">
-        <p>Algo ha salido mal en la clonación, nos tendremos que conformar solo con tres intentos.</p>
+        <p>Algo ha salido mal en la clonación, tendrás  que conformarte solo con tres intentos.</p>
     </div>
-    <div id="screen2RespuestaCorrecta" style="display: none;">Estupendo, la clonación ha funcionado. Ahora vamos a poder intentar descifrar la contraseña todas las veces que queramos</div>
+    <div id="screen2RespuestaCorrecta" style="display: none;">Estupendo, la clonación ha funcionado. Ya puedes poder intentar descifrar la contraseña todas las veces que quieras</div>
     
     <div id="screen3" style="display: block;">
-        <p>Ahora vamos a comenzar con la búsqueda de la contraseña. Lo primero que vas a tener que hacer es listar todos los datos que se encuentran dentro del software de la caja fuerte. A ver si hay suerte y el profesor los ha dejado facilmente accesibles.</p>
-
+        <p>Ahora te planteas con comenzar la búsqueda de la contraseña. En el manual pone que para entrar en los archivos internos de la caja fuerte vas a tener que escribir la edad de fabricación de esta, por lo que lo que el objetivo es listar todos los datos que se encuentran dentro del software de la caja fuerte para ver si ahí esta el año de fabricacón.</p>
+        <p>Además el manual pone que el nombre del objeto de la caja fuerte es cajaFuerte, por lo que piensas que ya tienes la mitad del trabajo hecho.</p>
+        <p>Por último el manual advierte de que para ver el resultado vas a tener que ir a la consola de dearrollador,</p>
         <input type="text" name="" id="inputListarObjeto">
-        <button type="submit" id="screen3ScriptEnviar">Probar</button>
+        <button type="submit" id="screen3ScriptEnviar">Probar Script</button>
+        <p id="resultadoComando"></p>
+        <br>
+        <input type="number" name="" id="anyoFabricacion">
+        <button type="submit" id="screen3RespuestaEnviar">Enviar año fabricación</button>
+        <p style="color: red; display: none;" id="errorScreen3">Año fabricación incorrecto, intentalo de nuevo</p>
     </div>
+
+    <div ></div>
 </body>
 
 </html>
