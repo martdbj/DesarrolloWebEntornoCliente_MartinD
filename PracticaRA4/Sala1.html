@@ -15,16 +15,23 @@
             ir a tu cocina para comerte los deliciosos fideos instantáneos que llevas guardando toda la semana.</p>
         <p>Cuando llegas; <b>tragedia</b>. No te acordabas de que habías metido tu nevera dentro de una caja fuerte para
             resistir la tentación de comer chocolate mientras trabajabas.</p>
-        <p>-No hay problema, te dices a ti mismo. Pero de lo que no te acuerdas es de que la caja fuerte fue construida
-            por tu profesor de JavaScript. Por lo qué tienes que descifrar la contraseña manipulando objetos de JavaScript con el fin de conseguir tu
+        <p>-No hay problema- Te dices a ti mismo. Pero de lo que no te acuerdas es de que la caja fuerte fue construida
+            por tu profesor de JavaScript. Por lo qué tienes que descifrar la contraseña manipulando objetos de
+            JavaScript con el fin de conseguir tu
             ansiado tentempie.</p>
-        <p>Por suerte guardas el manual de instrucciones que el profesor escribió al crear la caja fuerte, por lo que tienes alguna pista de como desbloquearla.</p>
+        <p>Por suerte guardas el manual de instrucciones que el profesor escribió al crear la caja fuerte, por lo que
+            tienes alguna pista de como desbloquearla.</p>
         <button id="siguiente">Seguir</button>
     </div>
-    ===============
-    <div id="screen2" style="display: block;">
-        <p>Estás en la cocina y ves la caja fuerte, según el manual de instrucciones que guardas desde hace 20 años, sabes que solo tienes tres intentos para desbloquearla, por lo que a lo mejor es buena idea hacer una copia de seguridad del código para poder intentarlo todas las veces que quieras.</p>
-        <p>No te acuerdas muy bien de cómo se creaban estas copias, pero por tu cabeza pasan varias opciones de hacerlo. El código de la caja fuerte, al tener probablemente funciones y cosas extrañas introducidas por el ingenioso profesor, solo tiene una manera correcta de realizar una clonación correcta y efectiva</p>
+
+    <div id="screen2" style="display: none;">
+        <p>Estás en la cocina y ves la caja fuerte, según el manual de instrucciones que guardas desde hace 20 años,
+            sabes que solo tienes tres intentos para desbloquearla, por lo que a lo mejor es buena idea hacer una copia
+            de seguridad del código para poder intentarlo todas las veces que quieras.</p>
+        <p>No te acuerdas muy bien de cómo se creaban estas copias, pero por tu cabeza pasan varias opciones para
+            hacerlo.
+            El código de la caja fuerte, al tener probablemente funciones y cosas extrañas introducidas por el ingenioso
+            profesor, solo tiene una manera correcta de realizar una clonación correcta y efectiva</p>
         <button class="screen2Incorrecto">Destructured Clone</button>
         <br><br>
         <button class="screen2Incorrecto">Clone()</button>
@@ -37,14 +44,21 @@
     </div>
 
     <div id="screen2RespuestaIncorrecta" style="display: none;">
-        <p>Algo ha salido mal en la clonación, tendrás  que conformarte solo con tres intentos.</p>
+        <p>Algo ha salido mal en la clonación, tendrás que conformarte solo con tres intentos.</p>
     </div>
-    <div id="screen2RespuestaCorrecta" style="display: none;">Estupendo, la clonación ha funcionado. Ya puedes poder intentar descifrar la contraseña todas las veces que quieras</div>
-    
-    <div id="screen3" style="display: block;">
-        <p>Ahora te planteas con comenzar la búsqueda de la contraseña. En el manual pone que para entrar en los archivos internos de la caja fuerte vas a tener que escribir la edad de fabricación de esta, por lo que lo que el objetivo es listar todos los datos que se encuentran dentro del software de la caja fuerte para ver si ahí esta el año de fabricacón.</p>
-        <p>Además el manual pone que el nombre del objeto de la caja fuerte es cajaFuerte, por lo que piensas que ya tienes la mitad del trabajo hecho.</p>
-        <p>Por último el manual advierte de que para ver el resultado vas a tener que ir a la consola de dearrollador,</p>
+    <div id="screen2RespuestaCorrecta" style="display: none;">Estupendo, la clonación ha funcionado. Ya puedes poder
+        intentar descifrar la contraseña todas las veces que quieras</div>
+
+    <div id="screen3" style="display: none;">
+        <p>Ahora te planteas con comenzar con la búsqueda de la contraseña. En el manual pone que para entrar en los
+            archivos internos de la caja fuerte vas a tener que escribir la edad de fabricación de esta, por lo que el
+            objetivo es listar todos los datos que se encuentran dentro del software de la caja fuerte para ver
+            si ahí esta el año de fabricacón.</p>
+        <p>Además el manual pone que el nombre del objeto de la caja fuerte es cajaFuerte, por lo que piensas que ya
+            tienes la mitad del trabajo hecho.</p>
+        <p>Por último el manual advierte de que para ver el resultado vas a tener que ir a la consola de dearrollador
+            para ver si el comando que has ejecutado es correcto.
+        </p>
         <input type="text" name="" id="inputListarObjeto">
         <button type="submit" id="screen3ScriptEnviar">Probar Script</button>
         <p id="resultadoComando"></p>
@@ -54,7 +68,58 @@
         <p style="color: red; display: none;" id="errorScreen3">Año fabricación incorrecto, intentalo de nuevo</p>
     </div>
 
-    <div ></div>
+    <div id="screen4" style="display: none;">
+        <p>Al fin puedes ver los archivos internos de la caja fuerte.</p>
+        <p>Según el manual hay una propiedad que es la clave, pero por desgracia es un symbol y no lo podemos ver
+            directamente. A lo mejor con la función desbloquear hay alguna manera de conseguirlo</p>
+        <p>modelo: "SergioScript Max Ultra Seguridad",
+            <br>
+            fabricacion: 1998,
+            <br>
+            nevera: {
+            <br>
+            modelo: "bosch",
+            <br>
+            stock: ["Lechuga", "Muesli", "Platanos", "Tomates Podridos", "Chocolate", "Fideos Instantaneos"]
+            <br>
+            },
+            <br>
+            [desbloquear]: function () {
+            ****
+            },
+            <br>
+            [clave]: "****"
+        </p>
+
+        <button id="ejecutarDesbloquear">Activar función desbloquear</button>
+        <br><br>
+        <label for="clave">Clave caja fuerte</label>
+        <input type="number" name="calve" id="clave" placeholder="Clave caja fuerte ****">
+        <button id="desbloquear">Desbloquear caja fuerte</button>
+    </div>
+
+    <div id="screen5" style="display: none;">
+        <p>Al fin has desbloqueado la caja fuerte, ahora lo último que queda es sacar los fideos de la nevera. Lo malo
+            es que la nevera funciona como un array, pero por suerte sabes que los fideos son la útlima cosa que has
+            metido. ¿Cuál es el método que puedes usar para retirarlos facilmente?</p>
+        <button class="screen5Incorrecto">push</button>
+        <br><br>
+        <button class="screen5Incorrecto">shift</button>
+        <br><br>
+        <button id="screen5Correcto">pop</button>
+        <br><br>
+        <button class="screen5Incorrecto">unshift</button>
+
+        <div style="display: none;" id="screen5RespuestaIncorrecta">
+            <p style="color: red;">Respuesta incorrecta. Intentalo de nuevo.</p>
+        </div>
+    </div>
+
+
+    <div id="finalSala1" style="display: none;">
+        <p>Por fin tienes tus fideos instantáneos, ahora solo falta usar el hervidor de agua para prepararlos...</p>
+        <h2>Fin de la sala 1</h2>
+    </div>
 </body>
 
 </html>
