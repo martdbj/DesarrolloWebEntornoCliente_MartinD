@@ -1,5 +1,5 @@
 "use strict";
-// Claves
+// Symbols
 let clave = Symbol("clave")
 let desbloquear = Symbol("desbloquear")
 
