@@ -25,18 +25,29 @@
     ===============
     <div id="screen2" style="display: block;">
         <p>Estás en la cocina y ves la caja fuerte, sabes que solo tienes tres intentos para desbloquearla, por lo que a lo mejor es buena idea hacer una copia de seguridad del código para poder intentarlo todas las veces que quieras.</p>
-        <p>No te acuerdas muy bien de cómo se creaban estas copias, pero por tu cabeza pasan varias opciones de hacerlo. El código de la caja fuerte, al tener probablemente funciones y cosas extrañas introducidas por el malvado profesor, solo tiene una manera correcta de realizar una clonación correcta y efectiva</p>
-        <button>Destructured Clone</button>
+        <p>No te acuerdas muy bien de cómo se creaban estas copias, pero por tu cabeza pasan varias opciones de hacerlo. El código de la caja fuerte, al tener probablemente funciones y cosas extrañas introducidas por el ingenioso profesor, solo tiene una manera correcta de realizar una clonación correcta y efectiva</p>
+        <button class="screen2Incorrecto">Destructured Clone</button>
         <br><br>
-        <button>Clone()</button>
+        <button class="screen2Incorrecto">Clone()</button>
         <br><br>
-        <button>Structured Clone</button>
+        <button class="screen2Incorrecto">Structured Clone</button>
         <br><br>
-        <button>Bucle For in</button>
+        <button class="screen2Incorrecto">Bucle For in</button>
         <br><br>
-        <button>Object.assign({}, cajaFuerte)</button>
+        <button id="screen2Correcto">Object.assign({}, cajaFuerte)</button>
     </div>
+
+    <div id="screen2RespuestaIncorrecta" style="display: none;">
+        <p>Algo ha salido mal en la clonación, nos tendremos que conformar solo con tres intentos.</p>
+    </div>
+    <div id="screen2RespuestaCorrecta" style="display: none;">Estupendo, la clonación ha funcionado. Ahora vamos a poder intentar descifrar la contraseña todas las veces que queramos</div>
     
+    <div id="screen3" style="display: block;">
+        <p>Ahora vamos a comenzar con la búsqueda de la contraseña. Lo primero que vas a tener que hacer es listar todos los datos que se encuentran dentro del software de la caja fuerte. A ver si hay suerte y el profesor los ha dejado facilmente accesibles.</p>
+
+        <input type="text" name="" id="inputListarObjeto">
+        <button type="submit" id="screen3ScriptEnviar">Probar</button>
+    </div>
 </body>
 
 </html>

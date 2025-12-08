@@ -1,31 +1,60 @@
+"use strict";
 let clave = Symbol("clave")
 
 let cajaFuerte = {
     modelo: "SergioScript Max Ultra Seguridad",
     fabricacion: 1998,
-    
+
     nevera: {
         modelo: "bosch",
         clave: 1234,
         stock: ["Lechuga", "Muesli", "Platanos", "Tomates Podridos", "Fideos Instantaneos", "Chocolate"]
     },
 
-    desbloquear: function() {
+    desbloquear: function () {
 
     },
 
     [clave]: "2356"
 }
 
-let MAX_ATTEMPS = 3
+// Screens de la sala
+let screen1 = document.getElementById("screen1");
+let screen2 = document.getElementById("screen2");
+let screen3 = document.getElementById("screen3");
+
+let MAX_ATTEMPS = 3;
 
 // Botones del juego
 const siguiente = document.getElementById("siguiente");
+const screen2Incorrecto = document.getElementsByClassName("screen2Incorrecto");
+const screen2Correcto = document.getElementById("screen2Correcto");
+const screen3Script = document.getElementById("screen3ScriptEnviar");
 
 // Ocultar Screen1 y mostrar Screen2 
 siguiente.addEventListener("click", () => {
-    let screen1 = document.getElementById("screen1");
-    let screen2 = document.getElementById("screen2");
+
     screen1.style.display = "none";
     screen2.style.display = "block";
 })
+
+// screen2 Resultado correcto/incorrecto 
+for (const botonIncorrecto of screen2Incorrecto) {
+    botonIncorrecto.addEventListener("click", () => {
+        let respuestaIncorrecta = document.getElementById("screen2RespuestaIncorrecta");
+        respuestaIncorrecta.style.display = "block";
+        screen3.style.display = "block";
+    })
+}
+
+screen2Correcto.addEventListener("click", () => {
+    let respuestaCorrecta = document.getElementById("screen2RespuestaCorrecta");
+    respuestaCorrecta.style.display = "block";
+    screen3.style.display = "block";
+    let cloneSoftwareCajaFuerte = Object.assign({}, cajaFuerte);
+});
+
+// screen3 Comprobación comando introducido por el usuario
+screen3Script.addEventListener("click", () => {
+    let inputUsuario = document.getElementById("inputListarObjeto").value.trim();
+});
