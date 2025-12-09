@@ -134,4 +134,24 @@ screen5Correcto.addEventListener("click", () => {
     respuestaIncorrectaScreen5.style.display = "none";
     screen5.style.display = "none";
     finalSala1.style.display = "block";
+
+    const ejercicioClase = document.getElementById("clase");
+    ejercicioClase.style.display = "block";
+})
+
+
+// Práctica clase 
+const botonClase = document.getElementById("clase");
+botonClase.addEventListener("click", () => {
+    console.log("Symbol clave de la caja fuerte. Es la clave que se usa en el juego para abrir la caja fuerte: " + cajaFuerte[clave]);
+
+    console.log("Este es el objeto de la caja fuerte sin clonar");
+    for (let key in cajaFuerte) {         
+        console.log(key + " : " + cajaFuerte[key]);     
+    }
+
+    console.log("Este es el objeto de la caja fuerte clonado. El límite de intentos puede ser superior debido a elecciones que puedes haber hecho en el juego");
+    for (let key in cloneSoftwareCajaFuerte) {
+        console.log(key + " : " + cloneSoftwareCajaFuerte[key]);     
+    }
 })
