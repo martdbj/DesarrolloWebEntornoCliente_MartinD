@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = () => {
+            let parrafo = document.getElementById("output");
+
+            let calificacion1 = Array.from({length:4}, () => calificacion = 1 * Math.floor(Math.random() * 11));
+            let calificacion2 = Array.from({length:4}, () => calificacion = 1 * Math.floor(Math.random() * 11));
+    
+            function paramVariable(...array) {
+                let finalString = "";
+                array.forEach(calificacion => finalString += `${calificacion} `);
+                return(finalString);
+                
+            }
+
+            parrafo.innerHTML = paramVariable(...calificacion1);
+            
+            sumaNotas = [...calificacion1, ...calificacion2];
+            let suma = 0;
+
+            for (const n of sumaNotas) {
+                suma += n;
+            } 
+
+            const promedio = (suma / sumaNotas.length);
+
+            parrafo.innerHTML = promedio;
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Random</h1>
+    <p id="output"></p>
+</body>
+
+</html>
