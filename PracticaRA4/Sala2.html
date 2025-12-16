@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala 2</title>
+    <script src="script/Sala2.js" defer></script>
+</head>
+
+<body>
+    <h1>Sala 2</h1>
+    <div id="screen1">
+        <p>Después de haber sacado los fideos instantáneos de la nevera ha llegado la hora de calentar el agua para
+            poder hacerlos.</p>
+        <p>Todo empieza bien, coges el hervidor miras a ver si tiene agua, y te das cuenta de que tiene tres líquidos
+            diferentes, por lo que decides analizarlo para ver que contiene.</p>
+        <button id="screen1Analizar">Analizar</button>
+        <p id="analizado"></p>
+        <div id="continuacionScreen1" style="display: none;">
+            <p>Ya sabes los líquidos que contiene. Por suerte uno de ellos es agua, por lo que le puedes dar al botón de limpiar para que el resto de líquidos se elimine</p>
+            <button id="limpiar">Limpiar</button>
+            <p id="mensajeScreen1" style="display: none; color: red;"></p>
+            <p ></p>
+            <button id="finalScreen1" style="display: none;">Continuar</button>
+        </div>
+    </div>
+
+    <div id="screen2">
+        <p>Por fin has solucionado ese problema, ahora seguro que todo va como la seda.</p>
+        <p>Enciendes la hervidora, lentamente está se empieza a calentar. Pero de repente, se va la luz. Ya sabes porque te dejaron los proveedores el precio tan barato.</p>
+        <p>Vas al cuadro de luces a arreglarlo, pero te encuentras una maraña de cables que no hay nadie vaya a desenredar, por lo que tienes que decidir el mejor método para desenredarlos. Es importante saber que algunos calbes se repiten, y en la tapa del cuadro de luces pone que estos fueron estructurados con un Map.</p>
+        <button class="respuestaIncorrectaScreen2">Pasar a un array</button>
+        <button id="respuestaCorrectaScreen2">Set</button>
+        <button class="respuestaIncorrectaScreen2">Llamar al electricista</button>
+        <button class="respuestaIncorrectaScreen2">Cortarlos</button>
+        <p id="parrafoRespuestaScreen2"></p>
+    </div>
+</body>
+
+</html>
