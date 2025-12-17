@@ -5,12 +5,13 @@ let hervidorSucio = {
 };
 
 let hervidorLimpio = {
-
+    ingredientes: []
 }
 
 // Screens
 const screen1 = document.getElementById("screen1");
 const screen2 = document.getElementById("screen2");
+const screen3 = document.getElementById("screen3");
 
 // Botones
 //Screen1
@@ -20,6 +21,10 @@ const finalScreen1 = document.getElementById("finalScreen1");
 //Screen2
 const respuestaIncorrectaScreen2 = document.getElementsByClassName("respuestaIncorrectaScreen2");
 const respuestaCorrectaScreen2 = document.getElementById("respuestaCorrectaScreen2");
+const finalScreen2 = document.getElementById("finalScreen2");
+//Screen3
+const anadirFideos = document.getElementById("anadirFideos");
+const retirarFideos = document.getElementById("retirarFideos");
 
 // Screen 1
 screen1Analizar.addEventListener("click", () => {
@@ -67,23 +72,31 @@ limpiar.addEventListener("click", () => {
 
 
 // Screen 2
-let mapaDeCablesSecuencial = new Map();
+let cables = new Map();
 
-mapaDeCablesSecuencial.set('cable1', 'Rojo');
-mapaDeCablesSecuencial.set('cable2', 'Azul');
-mapaDeCablesSecuencial.set('cable3', 'Verde');
-mapaDeCablesSecuencial.set('cable4', 'Amarillo');
-mapaDeCablesSecuencial.set('cable5', 'Negro');
-mapaDeCablesSecuencial.set('cable6', 'Rojo');       
-mapaDeCablesSecuencial.set('cable7', 'Verde');      
-mapaDeCablesSecuencial.set('cable8', 'Azul');       
-mapaDeCablesSecuencial.set('cable9', 'Blanco');
-mapaDeCablesSecuencial.set('cable10', 'Negro');    
+cables.set('cable1', 'Rojo');
+cables.set('cable2', 'Azul');
+cables.set('cable3', 'Verde');
+cables.set('cable4', 'Amarillo');
+cables.set('cable5', 'Negro');
+cables.set('cable6', 'Rojo');       
+cables.set('cable7', 'Verde');      
+cables.set('cable8', 'Azul');       
+cables.set('cable9', 'Blanco');
+cables.set('cable10', 'Negro');    
 
 respuestaCorrectaScreen2.addEventListener("click", () => {
     let parrafoCorrecto = document.getElementById("parrafoRespuestaScreen2");
+    // Usamos el set para desenredar los cables
+    const coloresDesenredados = new Set(cables.values());
     parrafoCorrecto.innerText = "Muy bien, al desenredarlos has visto que un cable no estaba enchufado. Al enchufarlo ha vuelto la luz y ya puedes finalmente cocinar tus fideos instantáneos";
+    finalScreen2.style.display = "block";
 });
+
+finalScreen2.addEventListener("click", () => {
+    screen2.style.display = "none";
+    screen3.style.display = "block";
+})
 
 // Usamos el array from para convertir la lista que nos devuelve el getElementsByClassName en Array para poder aplicar un foreach
 Array.from(respuestaIncorrectaScreen2).forEach(botonIncorrecto => {
@@ -92,3 +105,28 @@ Array.from(respuestaIncorrectaScreen2).forEach(botonIncorrecto => {
         parrafoIncorrecto.innerText = "No ha pasado nada, a lo mejor este no es";
     });
 });
+
+finalScreen1.addEventListener("click", () => {
+    screen2.style.display = "block";
+    screen1.style.display = "none";
+})
+
+
+// Screen 3
+anadirFideos.addEventListener("click", () => {
+    // Método array 1
+    hervidorLimpio.ingredientes.push("fideos");
+    let screen3Segund = document.getElementById("screen3Segunda");
+    screen3Segund.style.display = "block";
+})
+
+let fideosCocinados = "";
+retirarFideos.addEventListener("click", () => {
+    // Comprobamos que los fideos estan en el hervidor (Método array 2)
+    if (hervidorLimpio.ingredientes.includes("fideos")) {
+        // Método array 3
+        fideosCocinados = hervidorLimpio.ingredientes.pop();
+        let final = document.getElementById("final");
+        final.style.display = "block";
+    }
+})
