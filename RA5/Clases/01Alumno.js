@@ -1,8 +1,20 @@
 class Vehiculo {
+    #kilometros = 0;
+    static totalVehiculos = 0;
+
     constructor(marca, modelo, ano) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
+        Vehiculo.totalVehiculos++;
+    }
+
+    get kilometros() {
+        return this.#kilometros; 
+    }
+
+    set kilometros(value) {
+        if (value > 0) this.#kilometros = value;
     }
 
     mostrarInfo() {
@@ -11,7 +23,11 @@ class Vehiculo {
 
     calcularAntiguedad() {
         const now = new Date().getFullYear();
-        return now - ano;
+        return now - this.ano;
+    }
+
+    static mostrarTotalVehiculos() {
+        return Vehiculo.totalVehiculos;
     }
 }
 
@@ -21,7 +37,7 @@ class Coche extends Vehiculo {
         this.puertas = puertas;
         this.combustible = combustible;
     }
-
+    
     mostrarInfo() {
         return `${super.mostrarInfo()} <br>\nPuertas: ${this.puertas} <br>\nCombustible: ${this.combustible}`
     }
@@ -41,3 +57,8 @@ parrafo.innerHTML += `${test3.mostrarInfo()} <br>Antigüedad: ${test3.calcularAn
 
 let coche1 = new Coche("Ford", "Fiesta", 2010, 4, "60L");
 parrafo.innerHTML += `${coche1.mostrarInfo()} <br>Antigüedad: ${coche1.calcularAntiguedad()} años<br><br>`;  
+
+coche1.kilometros = 200;
+alert("Nuevos kilometros coche: " + coche1.kilometros);
+
+alert("Total de vehículos: " + Vehiculo.mostrarTotalVehiculos());
