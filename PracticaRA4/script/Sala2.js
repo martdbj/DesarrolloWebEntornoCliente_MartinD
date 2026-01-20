@@ -8,6 +8,14 @@ let hervidorLimpio = {
     ingredientes: []
 }
 
+// Ejercicio desestructuración
+let desestructuracion = {
+    elemento: ""
+}
+let {liquido3: agua} = hervidorSucio;
+desestructuracion.elemento = agua;
+console.log("Elemento desestruct:", desestructuracion.elemento);
+
 // Screens
 const screen1 = document.getElementById("screen1");
 const screen2 = document.getElementById("screen2");
@@ -62,6 +70,7 @@ limpiar.addEventListener("click", () => {
         case 5:
             // AÑadimos al hervidor limpio el liquido a través de la desestructuración
             let {liquido3: agua} = hervidorSucio;
+
             hervidorLimpio.Liquido = agua;
             finalScreen1.style.display = "block";
         default:
@@ -84,6 +93,11 @@ cables.set('cable7', 'Verde');
 cables.set('cable8', 'Azul');       
 cables.set('cable9', 'Blanco');
 cables.set('cable10', 'Negro');    
+
+// Ejercicio: Recorremos el map
+for (let cable of cables.keys()) {
+    console.log(cable); 
+}
 
 respuestaCorrectaScreen2.addEventListener("click", () => {
     let parrafoCorrecto = document.getElementById("parrafoRespuestaScreen2");
@@ -118,6 +132,12 @@ anadirFideos.addEventListener("click", () => {
     hervidorLimpio.ingredientes.push("fideos");
     let screen3Segund = document.getElementById("screen3Segunda");
     screen3Segund.style.display = "block";
+})
+
+
+// Ejercicio: Mostrar array modificado
+hervidorLimpio.ingredientes.forEach(ingrediente => {
+    console.log(ingrediente);
 })
 
 let fideosCocinados = "";

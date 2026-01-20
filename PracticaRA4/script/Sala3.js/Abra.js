@@ -5,8 +5,10 @@ export default class Abra extends Pokemon {
         super(name, hp, dmg);
     }
     
-    special(status) {
-        return status = "confundido";
+    special(pokemon) {
+        pokemon.hp -= pokemon.dmg;
+        alert(`${pokemon.name} está confundido, se ha golpeado a sí mismo`);
+        pokemon.status = "clean";
     }
 }
 

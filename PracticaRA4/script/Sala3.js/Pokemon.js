@@ -22,11 +22,23 @@ export default class Pokemon {
         this.name = value;
     }
 
-    static compareHealth(pokemon1, pokemon2) {
-        if (pokemon1.hp == pokemon2.hp) {
-            return "Igualados"
-        }
-        return pokemon1.hp > pokemon2.hp ? pokemon1.getName() : pokemon2.getName();
+    static checkGanador(pokemon1, pokemon2) {
+        if (pokemon1.hp <= 0 && pokemon2.hp <= 0) {
+            alert("Empate, ambos pokemons se han quedado kao a la vez");
+            if (confirm("Volver a empezar?")) {
+                window.location.reload();
+            }
+        } else if (pokemon1.hp <= 0) {
+            alert(`${pokemon2.name()} ha ganado!!!`)
+            if (confirm("Volver a empezar?")) {
+                window.location.reload();
+            }
+        } else if (pokemon2.hp <= 0) {
+            alert(`${pokemon1.name} ha ganado!!!`)
+            if (confirm("Volver a empezar?")) {
+                window.location.reload();
+            }
+        } 
     }
 
     static attack(pokemon1, pokemon2) {
@@ -35,7 +47,7 @@ export default class Pokemon {
     }
 
     quemadoStatus(pokemon) {
-        pokemon.hp -= 10;
+        pokemon.hp -= 50;
     }
 
     confundidoStatus(pokemon) {

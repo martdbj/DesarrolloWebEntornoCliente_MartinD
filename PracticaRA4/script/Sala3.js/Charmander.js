@@ -6,7 +6,9 @@ export default class Charmander extends Pokemon {
     }
     
     especial(pokemon) {
-        return pokemon.status = "quemado";
+        pokemon.hp -= 50;
+        alert(`${pokemon.name} se esta quemando, pierde 50 de vida`);
+        pokemon.status = "clean";
     }
 }
 
