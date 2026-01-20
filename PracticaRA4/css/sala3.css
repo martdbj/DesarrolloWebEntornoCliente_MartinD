@@ -20,13 +20,30 @@
     color: aqua;
 }
 
+#mainScreen {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+}
+
 #enemy,
 #you {
-    padding: 150px;
+    padding: 100px;
 }
+
 
 #enemy {
     background-color: red;
+}
+
+#contenido {
+    display: flex;
+    font-size: 30px;
+}
+
+#you #contenido img {
+    height: 150px;
+    margin-left: 100px;
 }
 
 #you {
@@ -47,7 +64,6 @@ a {
 
 #acciones div {
     color: black;
-    font-size: 20px;
     background-color: white;
     height: 100%;
     align-content: center;
@@ -56,4 +72,10 @@ a {
 
 #acciones div:hover {
     background-color: yellow;
+}
+
+
+#enemy #img {
+    height: 15%;
+    width: 10%;
 }

@@ -29,3 +29,7 @@ acciones.innerHTML = `
 `
 
 // Listeners acciones
+let healBtn = document.getElementById("heal");
+healBtn.addEventListener("click", () => {
+    charmander.heal();
+})
