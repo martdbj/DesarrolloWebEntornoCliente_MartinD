@@ -155,3 +155,8 @@ botonClase.addEventListener("click", () => {
         console.log(key + " : " + cloneSoftwareCajaFuerte[key]);     
     }
 })
+
+// Siguiente sala 
+document.getElementById("siguienteSala").addEventListener("click", () => {
+    window.location.href = "Sala2.html"
+});

@@ -150,3 +150,8 @@ retirarFideos.addEventListener("click", () => {
         final.style.display = "block";
     }
 })
+
+// Siguiente sala 
+document.getElementById("siguienteSala").addEventListener("click", () => {
+    window.location.href = "Sala3.html"
+});
