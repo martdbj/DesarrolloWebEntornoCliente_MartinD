@@ -5,8 +5,8 @@ export default class Charmander extends Pokemon {
         super(name, hp, dmg);
     }
     
-    quemar(status) {
-        return status = "quemado";
+    especial(pokemon) {
+        return pokemon.status = "quemado";
     }
 }
 

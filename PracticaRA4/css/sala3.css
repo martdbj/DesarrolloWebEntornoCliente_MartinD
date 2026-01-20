@@ -39,6 +39,13 @@
 #contenido {
     display: flex;
     font-size: 30px;
+    justify-content: space-between;
+}
+
+#health, #enemyHealth {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    align-self: center;
 }
 
 #you #contenido img {

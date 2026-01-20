@@ -5,7 +5,7 @@ export default class Abra extends Pokemon {
         super(name, hp, dmg);
     }
     
-    confundir(status) {
+    special(status) {
         return status = "confundido";
     }
 }

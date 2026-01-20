@@ -11,8 +11,7 @@ export default class Pokemon {
     } 
 
     heal() {
-        let healPercentage = this.hp * 0.2;
-        this.hp += healPercentage;
+        this.hp += 20;
     }
 
     getName() {
@@ -31,7 +30,7 @@ export default class Pokemon {
     }
 
     static attack(pokemon1, pokemon2) {
-        let finalHp = pokemon1.dmg - pokemon2.hp;
+        let finalHp = pokemon2.hp - pokemon1.dmg;
         pokemon2.hp = finalHp;
     }
 
