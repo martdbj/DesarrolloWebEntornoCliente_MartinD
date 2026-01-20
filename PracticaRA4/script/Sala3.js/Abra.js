@@ -1,10 +1,13 @@
-class Abra extends Pokemon {
-    constructor(name = "Abra", hp, attacks) {
-        super(name, hp, attacks);
+import Pokemon from "./Pokemon.js";
 
+export default class Abra extends Pokemon {
+    constructor(name, hp, dmg) {
+        super(name, hp, dmg);
     }
     
     confundir(status) {
         return status = "confundido";
     }
 }
+
+export {Abra}

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk:MORF@15&family=Jersey+10&family=Oi&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap');
+
+* {
+    font-family: "Jersey 10";
+}
+
+#mainScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.nombre {
+    font-size: 40px;
+    color: aqua;
+}
+
+#enemy,
+#you {
+    padding: 150px;
+}
+
+#enemy {
+    background-color: red;
+}
+
+#you {
+    background-color: green;
+}
+
+#you #acciones {
+    display: grid;
+    gap: 3px;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 40%;
+}
+
+a {
+    text-decoration: none;
+}
+
+#acciones div {
+    color: black;
+    font-size: 20px;
+    background-color: white;
+    height: 100%;
+    align-content: center;
+    border: 1px solid black;
+}
+
+#acciones div:hover {
+    background-color: yellow;
+}
