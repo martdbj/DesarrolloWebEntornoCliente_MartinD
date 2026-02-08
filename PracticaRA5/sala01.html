@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/engine.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .floor1 {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            height: 20%;
+        }
+
+        .floor2 {
+            position: fixed;
+            bottom: 60%;
+            width: 100%;
+            background-color: black;
+            height: 10%;
+        }
+
+        .stairs {
+            position: fixed;
+            bottom: 20%;
+            right: 0;
+            width: 10%;
+            background-color: black;
+            height: 50%;
+        }
+
+        .entity {
+            position: absolute;
+            display: block;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="player">
+        <img src="cat-removebg-preview.png" alt="">
+    </div>
+    <div id="background">
+        <div class="floor floor1"></div>
+        <div class="floor floor2"></div>
+        <div class="floor stairs"></div>
+    </div>
+</body>
+
+</html>
