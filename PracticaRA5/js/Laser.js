@@ -10,14 +10,24 @@ export default class Laser {
         document.body.appendChild(this.ref);
     }
 
-    shoot(dx, dy) {
-        this.position.x += dx;
-        this.position.y += dy;
-        this.refreshPosition();
+    generate() {
+        let windowHeight = window.innerHeight;
+        let windowWidth = window.innerWidth;
+
+        let randomHeight = Math.max(0, Math.min((windowHeight), Math.random() * windowHeight));
+        let randomWidth = Math.max(0, Math.min((maxHeight - windowWidth), Math.random() * windowWidth));
+
+        this.position.x = randomWidth;
+        this.position.y = randomHeight;
+
+        this.refreshPosition
     }
 
     refreshPosition() {
         this.ref.style.left = `${this.position.x}px`;
         this.ref.style.top = `${this.position.y}px`;
+
+        
     }
 }
+

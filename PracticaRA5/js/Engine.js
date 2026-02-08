@@ -1,8 +1,12 @@
 import Player from "./Player.js";
 import Laser from "./Laser.js";
 
+// Medidas de la pantalla de cada jugador
+let windowHeight = window.innerHeight - 70;
+let windowWidth = window.innerWidth - 70;
+
 const collider = {
-    mainCollider: new Player({x: 0, y: 700}),
+    mainCollider: new Player({ x: 0, y: 200 }),
     staticCollider: [],
     laser: []
 }
@@ -17,19 +21,19 @@ document.addEventListener("keydown", (e) => {
     switch (e.key) {
         // Teclas especiales
         case "ArrowLeft":
-            if (playerPosition.left == 0) speed = 0;
+            if (playerPosition.left == 0 || playerPosition.left < 0) speed = 0;
             player.movePlayer(-speed, 0);
             break;
         case "ArrowUp":
-            if (playerPosition.top == 0) speed = 0;
+            if (playerPosition.top == 0 || playerPosition.top < 0) speed = 0;
             player.movePlayer(0, -speed);
             break;
         case "ArrowRight":
-            if (playerPosition.right == 0) speed = 0;
+            if (playerPosition.right == 0 || playerPosition.right > windowWidth) speed = 0;
             player.movePlayer(speed, 0);
             break;
         case "ArrowDown":
-            if (playerPosition.bottom == 0) speed = 0;
+            if (playerPosition.bottom == 0 || playerPosition.bottom > windowHeight) speed = 0;
             player.movePlayer(0, speed);
             break;
         // Caracteres alfanuméricos
@@ -52,16 +56,33 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
-// Evento de raton
+// Evento de raton para hacer maullar al gato
 collider.mainCollider.ref.onclick = (e) => {
     // Detenemos la propagación
     e.stopPropagation();
     collider.mainCollider.miau();
-    
 }
 
-document.addEventListener("click", () => {
-    let laser = new Laser({x: `${collider.mainCollider.getPositionX()}`, y: `${collider.mainCollider.getPositionY()}`});
-    collider.laser.push(laser);
-    laser.shoot(1, 1);
-})
+// Delegación de eventos + evento de raton
+for (let i = 1; i < 10; i++) {
+    new Laser({
+        x: Math.floor(Math.random() * windowWidth),
+        y: Math.floor(Math.random() * windowHeight)
+    })
+}
+
+// Contador para el número de lasers que ha borrado el jugador
+let win_counter = 0
+document.body.onclick = (e) => {
+    let target = e.target;
+
+    if (target.className != "laser") return;
+
+    win_counter ++;
+    if (win_counter == 10) alert("Has ganado. Pulsa aceptar para pasar al siguiente nivel");
+    hide(target);
+}
+
+function hide(laser) {
+    laser.hidden = true;
+}
