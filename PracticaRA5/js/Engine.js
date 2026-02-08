@@ -10,7 +10,6 @@ let windowWidth = window.innerWidth - 70;
 
 const collider = {
     mainCollider: new Player({ x: 0, y: 200 }),
-    staticCollider: [],
     laser: []
 }
 
