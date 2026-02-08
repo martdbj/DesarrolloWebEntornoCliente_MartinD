@@ -1,6 +1,9 @@
 import Player from "./Player.js";
 import Laser from "./Laser.js";
 
+// Introducción al minijuego
+alert("Bienvenido al minijuego. Si le das click al gato maulla, el objetivo es darle click a todos los laseres");
+
 // Medidas de la pantalla de cada jugador
 let windowHeight = window.innerHeight - 70;
 let windowWidth = window.innerWidth - 70;
@@ -16,9 +19,9 @@ document.addEventListener("keydown", (e) => {
     // Detenemos la propagación
     e.preventDefault();
     let player = collider.mainCollider;
-    let speed = e.shiftKey ? 7 : 10;
+    let speed = e.shiftKey ? 15 : 7;
     let playerPosition = player.ref.getBoundingClientRect();
-    switch (e.key) {
+    switch (e.key.toLowerCase()) {
         // Teclas especiales
         case "ArrowLeft":
             if (playerPosition.left == 0 || playerPosition.left < 0) speed = 0;
@@ -38,19 +41,19 @@ document.addEventListener("keydown", (e) => {
             break;
         // Caracteres alfanuméricos
         case "a":
-            if (playerPosition.left == 0) speed = 0;
+            if (playerPosition.left == 0 || playerPosition.left < 0) speed = 0;
             player.movePlayer(-speed, 0);
             break;
         case "w":
-            if (playerPosition.top == 0) speed = 0;
+            if (playerPosition.top == 0 || playerPosition.top < 0) speed = 0;
             player.movePlayer(0, -speed);
             break;
         case "d":
-            if (playerPosition.right == 0) speed = 0;
+            if (playerPosition.right == 0 || playerPosition.right > windowWidth) speed = 0;
             player.movePlayer(speed, 0);
             break;
         case "s":
-            if (playerPosition.bottom == 0) speed = 0;
+            if (playerPosition.bottom == 0 || playerPosition.bottom > windowHeight) speed = 0;
             player.movePlayer(0, speed);
             break;
     }
