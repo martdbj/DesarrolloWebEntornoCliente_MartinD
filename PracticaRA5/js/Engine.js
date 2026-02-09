@@ -1,6 +1,15 @@
 import Player from "./Player.js";
 import Laser from "./Laser.js";
 
+// Tiempo al comenzar el minijuego
+let comienzo = Date.now();
+
+function tiempoFinal(comienzo) {
+    let final = Date.now();
+    let totalSec = (final - comienzo) / 1000;
+    return totalSec;
+}
+
 // Introducción al minijuego
 alert("Bienvenido al minijuego. Si le das click al gato maulla, el objetivo es darle click a todos los laseres");
 
@@ -65,7 +74,6 @@ collider.mainCollider.ref.onclick = (e) => {
     collider.mainCollider.miau();
 }
 
-// Delegación de eventos + evento de raton
 for (let i = 1; i < 10; i++) {
     new Laser({
         x: Math.floor(Math.random() * windowWidth),
@@ -75,13 +83,18 @@ for (let i = 1; i < 10; i++) {
 
 // Contador para el número de lasers que ha borrado el jugador
 let win_counter = 0
+// Delegación de eventos + evento de raton
 document.body.onclick = (e) => {
     let target = e.target;
 
     if (target.className != "laser") return;
 
     win_counter ++;
-    if (win_counter == 10) alert("Has ganado. Pulsa aceptar para pasar al siguiente nivel");
+    if (win_counter == 10) {
+        tiempoFinal(comienzo);
+        alert("Has ganado. Has tardado " + tiempoFinal(comienzo) + " segundos. Pulsa aceptar para pasar al siguiente nivel");
+
+    } 
     hide(target);
 }
 
