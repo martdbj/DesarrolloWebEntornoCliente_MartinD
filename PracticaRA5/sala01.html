@@ -10,15 +10,27 @@
 </head>
 
 <body>
-    <div id="name"></div>
-
-    <div id="player">
-        <img src="./resources/cat-removebg-preview.png" alt="">
+    <div id="contenedorFormulario">
+        <form name="inicioSesion">
+            <label for="name">Nombre: </label>
+            <input type="text" name="nombre" id="">
+            <label for="email">Email: </label>
+            <input type="text" name="email" id="email">
+            <button id="inicioBoton">Iniciar sesion</button>
+        </form>
     </div>
 
-    <div class="laser"></div>
+    <div id="game">
+        <div id="name"></div>
 
-    <div id="finalBox"></div>
+        <div id="player">
+            <img src="./resources/cat-removebg-preview.png" alt="">
+        </div>
+
+        <div class="laser"></div>
+
+        <div id="finalBox"></div>
+    </div>
 </body>
 
 </html>
