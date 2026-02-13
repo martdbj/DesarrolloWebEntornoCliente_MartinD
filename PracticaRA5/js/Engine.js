@@ -74,7 +74,7 @@ collider.mainCollider.ref.onclick = (e) => {
     collider.mainCollider.miau();
 }
 
-for (let i = 1; i < 10; i++) {
+for (let i = 1; i < 1; i++) {
     new Laser({
         x: Math.floor(Math.random() * windowWidth),
         y: Math.floor(Math.random() * windowHeight)
@@ -89,12 +89,43 @@ document.body.onclick = (e) => {
 
     if (target.className != "laser") return;
 
-    win_counter ++;
-    if (win_counter == 10) {
+    win_counter++;
+    if (win_counter == 1) {
         tiempoFinal(comienzo);
-        alert("Has ganado. Has tardado " + tiempoFinal(comienzo) + " segundos. Pulsa aceptar para pasar al siguiente nivel");
+        // El gato maulla cuando terminas
+        collider.mainCollider.miau();
+        alert("Has pasado esta fase en " + tiempoFinal(comienzo) + " segundos. Ahora tienes que mover el gato a la caja");
 
-    } 
+        // Evento final
+
+        let draggedCat = null;
+
+
+        // Evento dragstart
+        collider.mainCollider.ref.addEventListener("dragstart", (e) => {
+            draggedCat = e.target;
+            e.target.style.opacity = 0;
+        });
+
+        let finalBox = document.querySelector("#finalBox");
+        finalBox.style.display = "block";
+
+        // Permitimos al navegador que podamos soltar a nuestro gato en la caja
+        finalBox.addEventListener("dragover", (e) => {
+            e.preventDefault();
+        });
+
+
+        // Evento drop
+        finalBox.addEventListener("drop", (e) => {
+            e.preventDefault();
+            if (draggedCat) {
+                draggedCat.style.opacity = 1;
+                finalBox.appendChild(draggedCat);
+                alert("Enhorabuena, has ganado!")
+            }
+        });
+    }
     hide(target);
 }
 

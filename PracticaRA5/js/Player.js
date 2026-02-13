@@ -35,7 +35,7 @@ export default class Player {
     }
 
     miau() {
-        let audio = new Audio("../miau.wav");
+        let audio = new Audio("../resources/miau.wav");
         audio.play();
     }
 }

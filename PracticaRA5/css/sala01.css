@@ -1,0 +1,42 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+
+.entity {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.laser {
+    background-image: url(../resources/laser.png);
+    position: absolute;
+    user-select: none;
+    width: 35px;
+    height: 17px;
+}
+
+#name {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+#finalBox {
+    width: 10%;
+    height: 10%;
+    background-color: orange;
+    border: 1px solid brown;
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    display: none;
+
+}
