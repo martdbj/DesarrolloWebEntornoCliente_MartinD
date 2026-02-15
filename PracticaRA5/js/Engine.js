@@ -10,11 +10,21 @@ gameDiv.style.opacity = 0;
 // Botón inicio formulario
 const botonInicio = document.getElementById("inicioBoton");
 let formulario = document.getElementById("contenedorFormulario");
-botonInicio.addEventListener("click", (e) => {
+// Validación formulario
+// Formulario
+let formInicio = document.forms.inicioSesion;
+// Nuevo evento submit
+formInicio.addEventListener("submit", (e) => {
     e.preventDefault();
-    let formInicio = document.forms.inicioSesion;
     let nombreUsuario = formInicio.elements.nombre;
     let email = formInicio.elements.email;
+    let regex = /.+@.+\..+/;
+    if (!regex.test(email.value)) {
+        document.getElementById("error").innerHTML = "El email no tiene un formato valido";
+        email.focus();
+        return;
+    }
+
     nombre.innerHTML = "Nombre de usuario: " + nombreUsuario.value;
     formulario.hidden = true;
 
@@ -84,6 +94,14 @@ botonInicio.addEventListener("click", (e) => {
         collider.mainCollider.miau();
     }
 
+    // Evento mouseover de gato al pasar el raton por encima (cambio de background)
+    collider.mainCollider.ref.addEventListener("mouseover", () => {
+        collider.mainCollider.ref.style.backgroundColor = "lightblue";
+    });
+
+    collider.mainCollider.ref.addEventListener("mouseout", () => {
+        collider.mainCollider.ref.style.backgroundColor = "";
+    });
     for (let i = 1; i < 1; i++) {
         new Laser({
             x: Math.floor(Math.random() * windowWidth),
