@@ -133,7 +133,7 @@ formInicio.addEventListener("submit", (e) => {
                 draggedCat = e.target;
                 e.target.style.opacity = 0;
             });
-
+            
             let finalBox = document.querySelector("#finalBox");
             finalBox.style.display = "block";
 
