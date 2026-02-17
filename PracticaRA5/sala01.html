@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Document</title>
+    <script src="./js/Engine.js" defer type="module"></script>
+    <link rel="stylesheet" href="css/sala01.css">
+</head>
+
+<body>
+    <div id="contenedorFormulario">
+        <form name="inicioSesion">
+            <label for="name">Nombre: </label>
+            <input type="text" name="nombre" id="">
+            <label for="email">Email: </label>
+            <input type="text" name="email" id="email">
+            <button id="inicioBoton">Iniciar sesion</button>
+        </form>
+        <p id="error"></p>
+    </div>
+
+    <div id="game">
+        <div id="name"></div>
+
+        <div id="player">
+            <img src="./resources/cat-removebg-preview.png" alt="">
+        </div>
+
+        <div class="laser"></div>
+
+        <div id="finalBox"></div>
+    </div>
+</body>
+
+</html>
